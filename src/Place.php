@@ -1,5 +1,5 @@
 <?php
-    class Task
+    class Place
     {
         private $description;
 
@@ -18,23 +18,23 @@
             return $this->description;
         }
 
-        /* Save Task in $_SESSION variable */
+        /* Save place in $_SESSION variable */
 
         function save()
         {
-            array_push($_SESSION['list_of_tasks'], $this);
+            array_push($_SESSION['list_of_places'], $this);
         }
 
-        /* return the list of all of our tasks    */
+        /* return the list of all of our places    */
         static function getAll()
         {
-            return $_SESSION['list_of_tasks'];
+            return $_SESSION['list_of_places'];
         }
 
         // reset to blank array when delete
         static function deleteAll()
         {
-            $_SESSION['list_of_tasks'] = array();
+            $_SESSION['list_of_places'] = array();
         }
     }
  ?>

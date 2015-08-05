@@ -1,14 +1,14 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/Task.php";
+    require_once __DIR__."/../src/Place.php";
 
-    // Start session, checks for task key
+    // Start session, checks for place key
     // Creates empty array if it doesn't exist
 
     session_start();
 
-    if (empty($_SESSION['list_of_tasks'])) {
-        $_SESSION['list_of_tasks'] = array();
+    if (empty($_SESSION['list_of_places'])) {
+        $_SESSION['list_of_places'] = array();
 
     }
 
@@ -23,24 +23,24 @@
 
     $app->get("/", function() use ($app) {
 
-        return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll()));
+        return $app['twig']->render('places.html.twig', array('places' => Place::getAll()));
 
     });
 
-    // Created new tasks page that displays our created tasks
+    // Created new places page that displays our created places
 
-    $app->post("/tasks", function() use ($app) {
-        $task = new Task($_POST['description']);
-        $task->save();
-        return $app['twig']->render('create_task.html.twig', array('newtask' => $task));
+    $app->post("/places", function() use ($app) {
+        $place = new Place($_POST['description']);
+        $place->save();
+        return $app['twig']->render('create_place.html.twig', array('newplace' => $place));
 
     });
 
-    // Delete contents of array, directs user to delete_tasks page
+    // Delete contents of array, directs user to delete_places page
 
-    $app->post("/delete_tasks", function()  use ($app) {
-        Task::deleteAll();
-        return $app['twig']->render('delete_tasks.html.twig');
+    $app->post("/delete_places", function()  use ($app) {
+        place::deleteAll();
+        return $app['twig']->render('delete_places.html.twig');
 
     });
 
