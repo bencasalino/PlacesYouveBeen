@@ -30,7 +30,7 @@
     // Created new places page that displays our created places
 
     $app->post("/places", function() use ($app) {
-        $place = new Place($_POST['description']);
+        $place = new Place($_POST['cityname'], $_POST['durationstayed']);
         $place->save();
         return $app['twig']->render('create_place.html.twig', array('newplace' => $place));
 

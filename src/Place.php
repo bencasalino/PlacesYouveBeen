@@ -1,21 +1,33 @@
 <?php
     class Place
     {
-        private $description;
+        private $cityname;
+        private $durationstayed;
 
-        function __construct($description)
+        function __construct($cityname, $durationstayed)
         {
-            $this->description = $description;
+            $this->cityname = $cityname;
+            $this->durationstayed = $durationstayed;
         }
 
-        function setDescription($new_description)
+        function setcityname($new_cityname)
         {
-            $this->description = (string) $new_description;
+            $this->cityname = (string) $new_cityname;
         }
 
-        function getDescription()
+        function getcityname()
         {
-            return $this->description;
+            return $this->cityname;
+        }
+
+        function setdurationstayed($new_durationstayed)
+        {
+            $this->durationstayed = (float) $new_durationstayed;
+        }
+
+        function getdurationstayed()
+        {
+            return $this->durationstayed;
         }
 
         /* Save place in $_SESSION variable */

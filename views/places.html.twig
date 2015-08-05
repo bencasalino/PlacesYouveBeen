@@ -8,22 +8,26 @@
         <h1>Places You've Been</h1>
         <!--list all the user inputed data -->
         {% if places is not empty %}
-            <p> here are all your places: </p>
-            <ul>
+            <p>Here are all your places:</p>
                 {% for place in places %}
-                    <li>{{ place.getDescription }}</li>
+                    <p><b>{{ place.getcityname }}</b></p>
+                    <ul><li>{{ place.getdurationstayed }} </li></ul>
                 {% endfor %}
-            </ul>
         {% endif %}
 
         <form action='/places' method='post'>
             <div class="form-group">
-            <label for='description'>place Description</label>
-            <input id='description' name='description' type='form-control'>
+                <label for='cityname'>City Name </label>
+                <input id='cityname' name='cityname' type='form-control'>
+            </div>
 
+            <div class="form-group">
+                <label for='durationstayed'>Days Visited </label>
+                <input id='durationstayed' name='durationstayed' type='form-control'>
 
+            </div>
             <button class="btn btn-primary" type='submit'>Add place</button>
-        </div>
+
 
         </form>
         <form action='/delete_places' method='post'>
