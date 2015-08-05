@@ -11,7 +11,8 @@
             <p>Here are all your places:</p>
                 {% for place in places %}
                     <p><b>{{ place.getcityname }}</b></p>
-                    <ul><li>{{ place.getdurationstayed }} </li></ul>
+                    <ul><li>{{ place.getdurationstayed }} </li>
+                    <li><img src="{{ place.getcityimage }}"></li></ul>
                 {% endfor %}
         {% endif %}
 
@@ -26,6 +27,14 @@
                 <input id='durationstayed' name='durationstayed' type='form-control'>
 
             </div>
+            <form action='/places' method='post'>
+                <div class="form-group">
+                    <label for='cityimage'>City Image </label>
+                    <input id='cityimage' name='cityimage' type='form-control'>
+                </div>
+
+
+
             <button class="btn btn-primary" type='submit'>Add place</button>
 
 

@@ -7,7 +7,8 @@
     <div class="container">
         <h1>You created a place!!!! </h1>
         <p>{{ newplace.getcityname }}</p>
-        <ul><li>{{ newplace.getdurationstayed }}</li></ul>
+        <ul><li>{{ newplace.getdurationstayed }}</li>
+        <li><img src="{{ newplace.getcityimage }}"></li></ul>
         <p><a href='/'>View your list of places.</a></p>
     </div>
 </body>

@@ -3,11 +3,13 @@
     {
         private $cityname;
         private $durationstayed;
+        private $cityimage;
 
-        function __construct($cityname, $durationstayed)
+        function __construct($cityname, $durationstayed, $cityimage)
         {
             $this->cityname = $cityname;
             $this->durationstayed = $durationstayed;
+            $this->cityimage = $cityimage;
         }
 
         function setcityname($new_cityname)
@@ -28,6 +30,16 @@
         function getdurationstayed()
         {
             return $this->durationstayed;
+        }
+
+        function setcityimage($new_cityimage)
+        {
+            $this->cityimage = (string) $new_cityimage;
+        }
+
+        function getcityimage()
+        {
+            return $this->cityimage;
         }
 
         /* Save place in $_SESSION variable */
