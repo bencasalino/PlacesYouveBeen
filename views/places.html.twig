@@ -5,45 +5,49 @@
 </head>
 <body>
     <div class="container">
-        <h1>Places You've Been</h1>
-        <!--list all the user inputed data -->
-        {% if places is not empty %}
-            <p>Here are all your places:</p>
-                {% for place in places %}
-                    <p><b>{{ place.getcityname }}</b></p>
-                    <ul><li>{{ place.getdurationstayed }} </li>
-                    <li><img src="{{ place.getcityimage }}"></li></ul>
-                {% endfor %}
-        {% endif %}
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <h1>Places You've Been</h1>
+                <!--list all the user inputed data -->
+                {% if places is not empty %}
+                    <p>Here are all your places:</p>
+                        {% for place in places %}
+                            <p><b>{{ place.getcityname }}</b></p>
+                            <ul><li>{{ place.getdurationstayed }} </li>
+                            <li><img src="{{ place.getcityimage }}"></li></ul>
+                        {% endfor %}
+                {% endif %}
 
-        <form action='/places' method='post'>
-            <div class="form-group">
-                <label for='cityname'>City Name </label>
-                <input id='cityname' name='cityname' type='form-control'>
+                <form action='/places' method='post'>
+                    <div class="form-group">
+                        <label for='cityname'>City Name </label>
+                        <input class="form-control" id='cityname' name='cityname' type='text'>
+                    </div>
+
+                    <div class="form-group">
+                        <label for='durationstayed'>Days Visited </label>
+                        <input class="form-control" id='durationstayed' name='durationstayed' type='text'>
+
+                    </div>
+                    <form action='/places' method='post'>
+                        <div class="form-group">
+                            <label for='cityimage'>City Image </label>
+                            <input class="form-control" id='cityimage' name='cityimage' type='text'>
+                        </div>
+
+
+
+                    <button class="btn btn-primary btn-block" type='submit'>Add place</button>
+
+
+                </form>
+                <form action='/delete_places' method='post'>
+                    <div class="form-group">
+                    <button class="btn btn-danger btn-block" type='submit'>Clear</button>
+                    </div>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label for='durationstayed'>Days Visited </label>
-                <input id='durationstayed' name='durationstayed' type='form-control'>
-
-            </div>
-            <form action='/places' method='post'>
-                <div class="form-group">
-                    <label for='cityimage'>City Image </label>
-                    <input id='cityimage' name='cityimage' type='form-control'>
-                </div>
-
-
-
-            <button class="btn btn-primary" type='submit'>Add place</button>
-
-
-        </form>
-        <form action='/delete_places' method='post'>
-            <div class="form-group">
-            <button class="btn btn-primary" type='submit'>Clear</button>
         </div>
-        </form>
     </div>
 
 </body>
