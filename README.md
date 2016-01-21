@@ -6,7 +6,7 @@
 
 ## Description
 
-_Make a website where you can enter places that you have been. A Place should be an object. Start by just giving it one property - a city name. Then expand it by adding other properties like a picture, or how long you stayed, etc._
+_Make a website where you can enter places that you have been._
 
 ## Setup
 
